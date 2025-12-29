@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glam Impression - Luxury Bridal Portfolio</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: #ffffff;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            page-break-after: always;
+            position: relative;
+        }
+        
+        /* Cover Page */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 297mm;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            text-align: center;
+            padding: 60px 40px;
+        }
+        
+        .logo {
+            font-size: 58px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .tagline {
+            font-size: 20px;
+            color: #8b7355;
+            font-style: italic;
+            letter-spacing: 3px;
+            margin-bottom: 60px;
+        }
+        
+        .divider {
+            width: 150px;
+            height: 1px;
+            background: #c9a874;
+            margin: 30px auto;
+        }
+        
+        .cover-text {
+            font-size: 16px;
+            color: #666;
+            max-width: 600px;
+            margin: 40px auto;
+            line-height: 1.8;
+        }
+        
+        /* Content Pages */
+        .content-page {
+            padding: 50px 60px;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+        
+        .intro-text {
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+        
+        /* Gallery Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background: #f9f9f9;
+            border: 1px solid #e8e8e8;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            padding: 15px;
+            font-size: 11px;
+            color: #666;
+            text-align: center;
+            font-style: italic;
+            background: #fafafa;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .service-box {
+            padding: 25px;
+            background: #f9f9f9;
+            border-left: 3px solid #c9a874;
+        }
+        
+        .service-box h3 {
+            font-size: 16px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .service-box p {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Contact Section */
+        .contact-box {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .contact-box h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+        
+        .contact-box p {
+            font-size: 14px;
+            margin: 10px 0;
+            color: #c9a874;
+        }
+        
+        /* Print Specific */
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .page {
+                margin: 0;
+                border: none;
+                page-break-after: always;
+            }
+            
+            .no-print {
+                display: none;
+            }
+        }
+        
+      
+        @media screen {
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.3);
+                z-index: 999;
+                pointer-events: none;
+            }
+            
+            .page {
+                box-shadow: 0 0 20px rgba(0,0,0,0.3);
+                margin: 20px auto;
+            }
+        }
+        
+        .print-btn:hover {
+            background: #8b7355;
+        }
+        
+        @media print {
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+   
+
+    <!-- Page 1: Cover -->
+    <div class="page cover">
+        <h1 class="logo">Glam Impression</h1>
+        <p class="tagline">Luxury Bridal &amp; Wedding Salon</p>
+        <div class="divider"></div>
+        <p class="cover-text">
+            Where elegance meets artistry. We specialize in creating breathtaking bridal transformations 
+            that celebrate the timeless beauty of Indian wedding traditions with contemporary sophistication.
+        </p>
+        <div class="divider"></div>
+        <p style="font-size: 12px; color: #999; margin-top: 80px;">BRIDAL PORTFOLIO 2025</p>
+    </div>
+
+    <!-- Page 2: About & Services -->
+    <div class="page content-page">
+        <h2 class="section-title">About Glam Impression</h2>
+        <p class="intro-text">
+            Glam Impression is a premier luxury bridal salon dedicated to making every bride look and feel extraordinary. 
+            Our expert team combines traditional Indian bridal artistry with modern techniques, premium products, 
+            and personalized attention to create stunning, camera-ready looks that last throughout your special day.
+        </p>
+
+        <h3 style="font-size: 24px; margin: 50px 0 30px; text-align: center; color: #8b7355;">Our Signature Services</h3>
+        
+        <div class="services-grid">
+            <div class="service-box">
+                <h3>Bridal Makeup</h3>
+                <p>HD airbrush and traditional techniques with premium, long-lasting products. Flawless, camera-ready looks tailored to your style.</p>
+            </div>
+            <div class="service-box">
+                <h3>Hair Styling</h3>
+                <p>Elegant updos, intricate braids, and traditional hairstyles that complement your bridal look perfectly.</p>
+            </div>
+            <div class="service-box">
+                <h3>Outdoor Makeup</h3>
+                <p>Specialized makeup for outdoor shoots, destination weddings, and garden ceremonies with weather-resistant products.</p>
+            </div>
+            <div class="service-box">
+                <h3>Complete Bridal Packages</h3>
+                <p>Full wedding day transformations including makeup, hair, draping, and styling with trial sessions.</p>
+            </div>
+            <div class="service-box">
+                <h3>Pre-Wedding Events</h3>
+                <p>Specialized looks for mehendi, sangeet, engagement, and all your wedding festivities.</p>
+            </div>
+            <div class="service-box">
+                <h3>On-Location Service</h3>
+                <p>We bring our expertise to your venue, ensuring stress-free preparation on your special day.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Portfolio - Part 1 -->
+    <div class="page content-page">
+        <h2 class="section-title">Bridal Portfolio</h2>
+        <p class="intro-text">A glimpse of our signature bridal transformations</p>
+        
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="pic1.jpg" alt="Bridal Look 1">
+                <div class="gallery-caption">Soft glam with champagne tones and silver jewelry</div>
+            </div>
+            <div class="gallery-item">
+                <img src="pic2.jpg" alt="Bridal Look 2">
+                <div class="gallery-caption">Traditional elegance with polki necklace and emerald accents</div>
+            </div>
+            <div class="gallery-item">
+                <img src="pic3.jpg" alt="Bridal Look 3">
+                <div class="gallery-caption">Sophisticated bridal beauty with rose gold highlights</div>
+            </div>
+            <div class="gallery-item">
+                <img src="pic4.jpg" alt="Bridal Look 4">
+                <div class="gallery-caption">Radiant traditional look with complete gold jewelry set</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 4: Portfolio - Part 2 -->
+    <div class="page content-page">
+        <h2 class="section-title">Luxury Transformations</h2>
+        
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="pic6.jpg" alt="Bridal Look 5">
+                <div class="gallery-caption">Classic bridal perfection with traditional jewelry styling</div>
+            </div>
+            <div class="gallery-item">
+                <img src="pic7.jpg" alt="Bridal Look 6">
+                <div class="gallery-caption">Bold statement look with dramatic makeup and jewelry</div>
+            </div>
+            <div class="gallery-item">
+                <img src="pic8.jpg" alt="Bridal Look 7">
+                <div class="gallery-caption">Soft romantic bridal makeup with peachy tones</div>
+            </div>
+            <div class="gallery-item">
+                <img src="pic9.jpg" alt="Bridal Look 8">
+                <div class="gallery-caption">Regal bridal elegance with intricate jewelry detailing</div>
+            </div>
+             <div class="gallery-item">
+                <img src="model1.jpg" alt="Bridal Look 5">
+                <div class="gallery-caption">superb braid with perfect Makeup</div>
+            </div>
+            <div class="gallery-item">
+                <img src="model2.jpg" alt="Bridal Look 6">
+                <div class="gallery-caption">Bold statement look with western</div>
+            </div> <div class="gallery-item">
+                <img src="model3.jpg" alt="Bridal Look 5">
+                <div class="gallery-caption">Morden red lehnga look</div>
+            </div>
+             <div class="gallery-item">
+                <img src="bride-landscape.jpg" alt="Bridal Look 5">
+                <div class="gallery-caption">Morden red lehnga look</div>
+            </div>
+           
+        </div>
+
+        <div class="contact-box">
+            <h2>GLAM IMPRESSION</h2>
+            <div class="divider"></div>
+            <p>Luxury Bridal &amp; Wedding Salon</p>
+            <p>Making Every Bride Feel Like Royalty</p>
+            <p style="margin-top: 30px; color: white;">Available for Weddings, Pre-Wedding Events &amp; Special Occasions</p>
+        </div>
+    </div>
+    <hr>
+    <div class="page content-page">
+        <h2 class="section-title">Luxury Transformations</h2>
+        
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="bun1.jpg" alt="Bridal Look 5">
+                <div class="gallery-caption">Classic bridal perfection with traditional jewelry styling</div>
+            </div>
+            <div class="gallery-item">
+                <img src="bun2.jpg" alt="Bridal Look 6">
+                <div class="gallery-caption">Bold statement look with dramatic makeup and jewelry</div>
+            </div>
+            <div class="gallery-item">
+                <img src="bun3.jpg" alt="Bridal Look 7">
+                <div class="gallery-caption">Soft romantic bridal makeup with peachy tones</div>
+            </div>
+            <div class="gallery-item">
+                <img src="bun4.jpg" alt="Bridal Look 8">
+                <div class="gallery-caption">Regal bridal elegance with intricate jewelry detailing</div>
+            </div>
+             <div class="gallery-item">
+                <img src="bun5.jpg" alt="Bridal Look 5">
+                <div class="gallery-caption">superb braid with perfect Makeup</div>
+            </div>
+            <div class="gallery-item">
+                <img src="bun7.jpg" alt="Bridal Look 6">
+                <div class="gallery-caption">Bold statement look with western</div>
+            </div> 
+           
+        </div>
+    <!-- Page 5: Salon Interior & Store -->
+    <div class="page content-page">
+        <h2 class="section-title">Our Luxury Salon</h2>
+        <p class="intro-text">Experience comfort and elegance in our state-of-the-art bridal salon</p>
+        
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="salon1.jpg" alt="Salon Interior 1">
+                <div class="gallery-caption">Premium styling stations with gold-accented mirrors</div>
+            </div>
+          
+           
+            <div class="gallery-item">
+                <img src="IMG_20251218_152257_659.jpg" alt="Salon Interior 4">
+                <div class="gallery-caption">Modern bridal styling room with professional setup</div>
+            </div>
+           
+           
+           
+            <div class="gallery-item">
+                <img src="salon3.jpg" alt="Salon Interior 6">
+                <div class="gallery-caption">Professional salon corridor with modern aesthetics</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>
+
